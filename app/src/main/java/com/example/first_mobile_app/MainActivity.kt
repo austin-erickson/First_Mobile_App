@@ -37,6 +37,10 @@ class MainActivity : ComponentActivity() {
                             // Implicit Intent to start SecondActivity
                             val implicitIntent = Intent("com.example.ACTION_VIEW_CHALLENGES")
                             startActivity(implicitIntent)
+                        },
+                        onViewImageActivity = {
+                            val intent = Intent(this, ThirdActivity::class.java)
+                            startActivity(intent)
                         }
                     )
                 }
@@ -51,7 +55,8 @@ fun MainScreen(
     studentId: String,
     modifier: Modifier = Modifier,
     onStartExplicitActivity: () -> Unit,
-    onStartImplicitActivity: () -> Unit
+    onStartImplicitActivity: () -> Unit,
+    onViewImageActivity: () -> Unit
 ) {
     Column(
         horizontalAlignment = Alignment.CenterHorizontally,
@@ -77,6 +82,9 @@ fun MainScreen(
         Button(onClick = onStartImplicitActivity, modifier = Modifier.padding(8.dp)) {
             Text(text = "Start Activity Implicitly")
         }
+        Button(onClick = onViewImageActivity) {
+            Text(text = "View Image Activity")
+        }
     }
 }
 
@@ -89,7 +97,8 @@ fun MainScreenPreview() {
             name = "Austin",
             studentId = "1259150",
             onStartExplicitActivity = {},
-            onStartImplicitActivity = {}
+            onStartImplicitActivity = {},
+            onViewImageActivity = {}
         )
     }
 }
