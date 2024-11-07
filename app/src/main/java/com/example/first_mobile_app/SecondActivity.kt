@@ -41,7 +41,7 @@ class SecondActivity : ComponentActivity() {
 fun ChallengesScreen(modifier: Modifier = Modifier, onBackToMainActivity: () -> Unit) {
     // Centering the content using a Box
     Box(
-        modifier = Modifier
+        modifier = modifier
             .fillMaxSize() // Make the Box fill the screen
             .padding(16.dp), // Add some padding to avoid edge cutoff
         contentAlignment = Alignment.Center // Align content in the center
